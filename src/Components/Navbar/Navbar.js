@@ -1,15 +1,16 @@
 // import { signOut } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import React from "react";
-// import { useAuthState } from "react-firebase-hooks/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useParams } from "react-router-dom";
-// import auth from "../../../firebase.init";
+import auth from "../../firebase.init";
 
 const Navbar = () => {
-  //   const [user] = useAuthState(auth);
-  //   const handleLogout = () => {
-  //     signOut(auth);
-  //     localStorage.removeItem("accessToken");
-  //   };
+  const [user] = useAuthState(auth);
+  const handleLogout = () => {
+    signOut(auth);
+    localStorage.removeItem("accessToken");
+  };
   const MenuItems = (
     <>
       <li>
@@ -21,12 +22,10 @@ const Navbar = () => {
       </li>
 
       <li>
-        <Link to="/contact">My List</Link>
+        <Link to="/mylist">My List</Link>
       </li>
+
       <li>
-        <Link to="/login">login</Link>
-      </li>
-      {/* <li>
         {user ? (
           <Link onClick={handleLogout} to="">
             Logout
@@ -34,7 +33,7 @@ const Navbar = () => {
         ) : (
           <Link to="/login">Login</Link>
         )}
-      </li> */}
+      </li>
     </>
   );
   return (

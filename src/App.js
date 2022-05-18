@@ -7,6 +7,7 @@ import AddNewList from "./Components/Pages/AddNewList";
 import MyList from "./Components/Pages/MyList";
 import Login from "./Components/Login/Login";
 import Signup from "./Components/Login/Signup";
+import RequireAuth from "./Hooks/RequireAuth";
 
 function App() {
   return (
@@ -14,8 +15,22 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/addnewlist" element={<AddNewList />} />
-        <Route path="/mylist" element={<MyList />} />
+        <Route
+          path="/addnewlist"
+          element={
+            <RequireAuth>
+              <AddNewList />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/mylist"
+          element={
+            <RequireAuth>
+              <MyList />
+            </RequireAuth>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
