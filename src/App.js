@@ -8,6 +8,7 @@ import MyList from "./Components/Pages/MyList";
 import Login from "./Components/Login/Login";
 import Signup from "./Components/Login/Signup";
 import RequireAuth from "./Hooks/RequireAuth";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -23,14 +24,14 @@ function App() {
             </RequireAuth>
           }
         />
-        <Route
+        {/* <Route
           path="/mylist"
           element={
             <RequireAuth>
               <MyList />
             </RequireAuth>
           }
-        />
+        /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
